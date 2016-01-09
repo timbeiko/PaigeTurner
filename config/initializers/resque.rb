@@ -1,5 +1,4 @@
 require 'resque/scheduler'
-require 'resque/scheduler/server'
 
 Resque.redis = 'localhost:6379'
 Resque.redis.namespace = "resque:PaigeTurner"

@@ -39,6 +39,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'resque', '~> 1.25.2'
 gem 'resque-scheduler', '~> 4.0.0'
 gem 'resque-web', require: 'resque_web'
+gem 'resque-scheduler-web'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

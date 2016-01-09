@@ -129,6 +129,9 @@ GEM
       redis (~> 3.0)
       resque (~> 1.25)
       rufus-scheduler (~> 3.0)
+    resque-scheduler-web (0.0.4)
+      resque-scheduler (~> 4.0)
+      resque-web (~> 0)
     resque-web (0.0.7)
       coffee-rails
       jquery-rails
@@ -197,6 +200,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   resque (~> 1.25.2)
   resque-scheduler (~> 4.0.0)
+  resque-scheduler-web
   resque-web
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
