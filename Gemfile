@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # get twitter authentification
 gem 'omniauth-twitter'
 
-# Twitter API 
+# Twitter API
 gem 'twitter'
 
 # Keep track of environment variables
@@ -37,12 +37,25 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# Use Puma as the app server
+gem 'puma'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'bootstrap-sass', '~> 3.3.6'
+# Resque for scheduling
+gem 'resque', '~> 1.25.2'
+gem 'resque-scheduler', '~> 4.0.0'
+gem 'resque-web', require: 'resque_web'
+gem 'resque-scheduler-web'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Pry for debugging
+  gem 'pry'
 end
 
 group :development do
@@ -51,5 +64,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
 
+  gem 'foreman'
+end

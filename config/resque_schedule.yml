@@ -1,0 +1,5 @@
+do_schedule_tweet:
+  every: 30s
+  class: ScheduleTweet
+  args:
+  description: Runs the perform method in ScheduleTweet
