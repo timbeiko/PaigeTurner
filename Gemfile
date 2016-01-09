@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # get twitter authentification
 gem 'twitter_oauth'
 
+# Twitter API 
+gem 'twitter'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
