@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   # Not sure all of these will be necessary.
   root 'static_pages#index'
-  
+
   get 'auth/:provider/callback', to: 'sessions#create'
   post 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
-<<<<<<< HEAD
-=======
-
   get '/login', to: 'sessions#new'
   get 'auth/identity/', to: redirect('/login')
   resources :identities, only: [:new, :create]
@@ -64,5 +61,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
->>>>>>> 4a84b307fbca667bb25229ff46e20b3c42029fec
 end
