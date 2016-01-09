@@ -11,25 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109205758) do
+ActiveRecord::Schema.define(version: 20160109211837) do
 
   create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "author"
+    t.string   "title"
+    t.string   "author"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "static_pages", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.string "body"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "handle"
-    t.string  "email"
-    t.string  "image"
-    t.string  "uid"
-    t.string  "provider"
-    t.string  "token"
-    t.integer "expires_at"
+    t.string   "handle"
+    t.string   "email"
+    t.string   "image"
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "token"
+    t.integer  "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
