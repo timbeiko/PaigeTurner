@@ -1,0 +1,7 @@
+<h1>Add a tweet!</h1>
+<%= form_for @tweet, url: {action: "create"}, html: {class: "tweet_creation_form"} do |f| %>
+  <%= f.text_area :body, size: "60x12" %>
+  <br />
+  <%= f.submit "Create" %>
+
+<% end %>
