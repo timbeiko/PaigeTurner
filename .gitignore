@@ -19,3 +19,8 @@
 # Ignore application configuration
 /config/application.yml
 
+<<<<<<< HEAD
+=======
+#Ignore rbenv
+/.ruby-version
+>>>>>>> 4a84b307fbca667bb25229ff46e20b3c42029fec
