@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
 # get twitter authentification
-gem 'twitter_oauth'
+gem 'omniauth-twitter'
 
 # Twitter API 
 gem 'twitter'
+
+# Keep track of environment variables
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
