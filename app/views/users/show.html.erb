@@ -1,6 +1,4 @@
-<<<<<<< Updated upstream
 <h1>Hi <%= current_user.handle %>, this is your profile</h1>
-=======
 <div class="container">
 <div>
     <img src="images/egg.png" width=50 align="right" style="margin-left: 10px">
@@ -21,7 +19,7 @@
         var totalSeconds = 0;
         var active = true;
         setInterval(setTime, 1000);
-        
+
         function setTime()
         {
             if (active){
@@ -30,14 +28,14 @@
                 minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
             }
         }
-    
+
     function pause()
     {
         if(active) {
             active=false;
         } else active=true;
     }
-    
+
     function pad(val)
     {
         var valString = val + "";
@@ -51,12 +49,10 @@
         }
     }
     </script>
-</div>  
+</div>
 <form>
     <div class="row">
         <input style="width: 40%" placeholder="What are you reading now?" id="activeBook">
         <input class="button-primary" type="submit" value="submit" id="submitBook">
     </div>
 </form>
-
->>>>>>> Stashed changes
