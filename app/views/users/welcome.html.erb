@@ -1,0 +1,26 @@
+ <div class="container">
+    <div id="usrinfo">
+      <img src="<%= asset_path @user.image %>" width=50 align="right" style="margin-left: 10px">
+      <p align="right">Hi <%= @user.handle %>!<br \>
+        <%= link_to "Log out", signout_path %></p>
+    </div>
+    <div class="row" style="margin-top: 10%">
+      <center><img src="<%= asset_path 'paige_turner.png' %>" width=100></center>
+    </div>
+    <div class="row">
+      <center><p>Welcome, <%= @user.handle %>! First, tell me what book you're reading.</p></center>
+    </div>
+    <div>
+    
+    <br />
+      <div class="row">
+ <%= form_for @user do |f| %>
+
+  <p><%= f.collection_select(:user_books, Book.all, :id, :title) %>
+  <%= f.submit "submit" %></p>
+<% end %>
+
+  </div>
+
+</form>
+</div>

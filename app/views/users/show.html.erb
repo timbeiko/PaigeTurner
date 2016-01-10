@@ -1,38 +1,50 @@
- <div class="container">
+<div class="container"> 
     <div id="usrinfo">
-      <img src="<%= asset_path 'egg.png' %>" width=50 align="right" style="margin-left: 10px">
-      <p align="right">Hi YOURNAME<br>Log out</p>
+      <img src="<%= asset_path @user.image %>" width=50 align="right" style="margin-left: 10px">
+      <p align="right">Hi <%= @user.handle %>!<br \>
+        <%= link_to "Log out", signout_path %></p>
     </div>
-    <div class="row" style="margin-top: 10%">
+    <div class="row" style="margin-top: 8%; margin-bottom: 3%">
       <center><img src="<%= asset_path 'paige_turner.png' %>" width=100></center>
     </div>
     <div class="row">
-      <center><p>Welcome back, YOURNAME! Time to get reading. <br>Enjoy FRANKENSTEIN!</p></center>
-    </div>
+      <center><p id="readMessage">All right, let's get reading. You're already on the clock.<br> 
+      Enjoy <b><%= @user.books[0].title %></b>!</p></center>
+    </div>  
+    <h1 id="congrats"></h1>
     <div>
-    <center><label id="minutes">00</label><label>:</label><label id="seconds">00</label></center>
-    <a class="button" href="#" id="startstop" onclick="pause()">Start/stop timer</a>
-    <script type="text/javascript">
+      <div class="row" id="timer"><center>
+        <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
+      </center></div>
+      <a class="button" href="#" id="startstop" onclick="finish()">Done reading</a>
+      <script type="text/javascript">
+          var hoursLabel = document.getElementById("hours");
           var minutesLabel = document.getElementById("minutes");
           var secondsLabel = document.getElementById("seconds");
+          var timer = document.getElementById("timer");
           var totalSeconds = 0;
-          var active = true;
+          var done = false;
           setInterval(setTime, 1000);
 
           function setTime()
           {
-           if (active){
-              ++totalSeconds;
-              secondsLabel.innerHTML = pad(totalSeconds%60);
-              minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
-            }
+            ++totalSeconds;
+            secondsLabel.innerHTML = pad(totalSeconds%60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+            hoursLabel.innerHTML = pad(parseInt(totalSeconds/3600));
+            
           }
 
-          function pause()
+          function finish()
           {
-            if(active) {
-              active=false;
-            } else active=true;
+            var child = document.getElementById("readMessage");
+            child.parentNode.removeChild(child);
+            child = document.getElementById("startstop");
+            child.parentNode.removeChild(child);
+            var totalTime = parseInt(totalSeconds/60);
+            h = document.getElementById("congrats");
+            h.innerHTML = "Congrats! <br /> You just read for <span>" + parseInt(totalSeconds/3600) +"</span> hours and <span>" + parseInt(totalSeconds/60) + "</span> minutes!";
+            timer.parentNode.removeChild(timer);
           }
 
           function pad(val)
@@ -48,12 +60,16 @@
               }
           }
       </script>
-    </div>
-    <form>
-      <div class="row">
-        <input style="width: 60%" placeholder="What are you reading now?" font-family="Century Gothic" id="activeBook">
-        <input class="button-primary" type="submit" value="submit" id="submitBook">
-  </div>
+    </div>  
+    <br/>
+    <br />
+          <div class="row">
+            <p>Done with this book? What's next?</p>
+ <%= form_for @user do |f| %>
 
-</form>
+  <p><%= f.collection_select(:user_books, Book.all, :id, :title) %>
+  <%= f.submit "submit" %></p>
+<% end %>
 </div>
+ 
+

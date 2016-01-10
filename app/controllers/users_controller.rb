@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   def show
     if good_profile?
       @user = current_user
+      if @user.books.count <= 0
+        redirect_to welcome_path
+      end
     else
       redirect_to user_path(current_user.id)
     end
@@ -9,6 +12,19 @@ class UsersController < ApplicationController
   end
 
   def bot
+  end
+
+  def welcome
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @book = Book.find(params[:user][:user_books].to_i)
+    @user.books = [@book]
+    if @user.save
+      redirect_to user_path
+    end
   end
 
   def tweetout
@@ -36,6 +52,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:tweets_index)
+    params.require(:user).permit(:tweets_index, :book)
   end
 end

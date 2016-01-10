@@ -32,10 +32,11 @@ Rails.application.routes.draw do
   #   resources :products
 
   # Users
-  resources :users, only: :show
+  resources :users, only: [:show, :update]
 
   # Tweetbot
   get 'bot', to: 'users#bot'
   post 'tweetout', to: 'users#tweetout'
+  get 'welcome', to: 'users#welcome'
 
 end

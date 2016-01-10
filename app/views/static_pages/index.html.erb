@@ -1,21 +1,19 @@
-<div class="container">
-<div class="row" style="margin-top: 5%">
+<div class="container"> 
+    <div class="row" style="margin-top: 5%">
       <center><img src="<%= asset_path 'paige_turner.png' %>" width=200></center>
     </div>
-    <div class="row" style="margin-top: 2%">
+    <div class="row" style="margin-top: 8%">
       <center><h4>Hi, I'm Paige Turner!</h4></center>
-      <center><p style="text-align: justify">And I'm your personal book manager! Remember that hardcopy that's been idling on your night stand for the past year (you know the one), you’ve opened the cover, read a few sentences, and then that device in your pocket dings telling you why squirrels are especially fat this year or who just saw Drake’s doppelgänger, and there goes that previous reading time, lost to the abyss of the interwebs. Paigeturner.co clocks the amount of time you have spend reading your book and incorporates our twitter feed (@onthepaige) to encourage you to continue reading by posting tantalizing tweets from the characters in your book. So sign up and get On The Paige. </p></center>
+      <center><p style="text-align: justify">And I'm your personal reading manager! I’m here to remind you to pick up that book you’ve been meaning to read. My goal is to encourage you to continue reading with tantalizing tweets about your characters. So sign up and get page turning!  </p></center>
+    </div>  
+
+    <% if current_user %>
+      Welcome <%= current_user.handle %>!
+      <img src="<%= current_user.image %>">
+      <%= link_to "Sign Out", signout_path %>
+    <% else %>
+      <div class="row" style="margin-top: 4%">
+        <center><a class="button button-primary" href="/auth/twitter">Log In with Twitter</a></center>
+      </div> 
+    <% end %> 
     </div>
-
-
-<% if current_user %>
-  Welcome <%= current_user.handle %>!
-  <img src="<%= current_user.image %>">
-  <%= link_to "Sign Out", signout_path %>
-<% else %>
-  <div class="row" style="margin-top: 4%">
-      <center><a class="button button-primary" href="/auth/twitter">Log In with Twitter</a></center>
-  </div>
-<% end %>
-
-</div>
