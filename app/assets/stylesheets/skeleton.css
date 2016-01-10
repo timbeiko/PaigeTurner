@@ -168,7 +168,7 @@ p {
   margin-top: 0; }
 
 #usrinfo {
-  width: 100%;
+  width: 150%;
   text-align: right;
   float: right;
 }
@@ -183,7 +183,7 @@ p {
 
 @media (max-width: 400px) {
   #timer { font-size: 6rem; }
-  #usrinfo { width: 150%; }
+  #usrinfo { width: 100%; }
 }
 @media (max-width: 550px) {
   #usrinfo { width: 115%; }
