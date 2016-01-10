@@ -19,9 +19,7 @@ module ScheduleTweet
           handle = user.handle
           tweet = user.books.first.tweets[user.tweets_index].body
           user.increase_tweets_index
-          response = @client.update(handle + " " + tweet)
-          begin
-            response = @client.update(handle + " " + tweet + " http://paigeturner.co")
+          response = @client.update(handle + " " + tweet + " http://paigeturner.co")
           begin
             puts response.inspect
           rescue Exception => e
