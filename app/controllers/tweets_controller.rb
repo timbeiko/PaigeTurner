@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-	autocomplete :book, :title
 
 	def new
 		@tweet = Tweet.new
