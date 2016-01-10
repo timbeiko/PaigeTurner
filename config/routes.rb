@@ -11,11 +11,10 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   get 'auth/identity/', to: redirect('/login')
   resources :identities, only: [:new, :create]
-  mount ResqueWeb::Engine => "/resque_web"
 
-  resources :tweets do  
+  resources :tweets do
   	get :autocomplete_book_title, on: :collection
-  end 
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
