@@ -1,5 +1,5 @@
 class Tweet <ActiveRecord::Base
 	belongs_to :book
 
-	validates_length_of :body, :maximum => 140
+	validates_length_of :body, :maximum => 116
 end
