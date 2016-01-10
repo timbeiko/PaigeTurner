@@ -34,9 +34,8 @@ class TweetsController < ApplicationController
 
     handle = current_user.handle
     tweet = current_user.books.first.tweets.find_by(id: current_user.tweets_index + 1).body
-    increase_tweets_index(current_user)
+    current_user.increase_tweets_index
     current_user.save!
-    binding.pry
     @client.update(handle + " " + tweet)
     redirect_to bot_path
   end

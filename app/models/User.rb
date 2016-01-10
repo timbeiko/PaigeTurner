@@ -1,6 +1,5 @@
 class User <ActiveRecord::Base
   validates_presence_of :uid, :provider, :handle
-  accepts_nested_attributes_for :tweets
   has_many :user_books
   has_many :books, through: :user_books # Would need to change this to only allow 1 book
 
