@@ -19,7 +19,12 @@ module ScheduleTweet
           handle = user.handle
           tweet = user.books.first.tweets[user.tweets_index].body
           user.increase_tweets_index
-          @client.update(handle + " " + tweet)  
+          response = @client.update(handle + " " + tweet)  
+          begin   
+            resp = Twitter.update(params[:message])
+          rescue Exception => e
+            # e.message contains the twitter response      
+          end
         end    
       end
   end
