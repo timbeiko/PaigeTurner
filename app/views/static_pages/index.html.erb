@@ -2,7 +2,7 @@
 <h3> If you want to use me, you should log in with twitter</h3>
 <% if current_user %>
   Welcome <%= current_user.handle %>!
-  <img src="<%= current_user.email %>">
+  <img src="<%= current_user.image %>">
   <%= link_to "Sign Out", signout_path %>
 <% else %>
   <%= link_to image_tag("sign-in-with-twitter-gray.png", :alt => "log in"), "/auth/twitter" %>
