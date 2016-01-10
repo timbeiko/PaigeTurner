@@ -7,10 +7,15 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   resources :tweets
+  resources :books
   get '/login', to: 'sessions#new'
   get 'auth/identity/', to: redirect('/login')
   resources :identities, only: [:new, :create]
   mount ResqueWeb::Engine => "/resque_web"
+
+  resources :tweets do  
+  	get :autocomplete_book_title, on: :collection
+  end 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
