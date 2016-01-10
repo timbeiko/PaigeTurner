@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   get 'auth/identity/', to: redirect('/login')
   resources :identities, only: [:new, :create]
+
+  # Mounts the resque web console
   mount ResqueWeb::Engine => "/resque_web"
 
   # Example of regular route:

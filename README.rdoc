@@ -3,4 +3,16 @@
 Paige Turner helps you spend less time on Twitter and more time reading.
 Built during CODEX Boston 2016
 
-Docs TBA
+=== Installation
+
+Assumes you've installed redis, probably from homebrew.
+
+=== Local
+
++bundle install+
++foreman start+
+
+=== Deployment
+
++heroku git:remote -a paige-turner+
++git push heroku master+
