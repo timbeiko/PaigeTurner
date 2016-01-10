@@ -7,8 +7,8 @@ module ScheduleTweet
             config.consumer_key        = ENV["TWITTER_API_KEY"]
             config.consumer_secret     = ENV["TWITTER_API_SECRET"]
             # Change this in prod
-            config.access_token        = '4757590114-Kok6YXQBEENVeCKJv3WScIaOjNgS599fHPDoCoS'
-            config.access_token_secret = 'gi8mWVzBJWCkElZm7vwR6423iXbwID2rLDmRklPQupgC0'
+            config.access_token        = ENV["ACCESS_TOKEN"]
+            config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
           end
 
 
