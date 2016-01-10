@@ -25,3 +25,24 @@ Assumes you've installed redis, probably from homebrew.
     - When a tweet about X book has been sent, it is marked as so
     - When all tweets about X book have been sent for `current_user`, they should all be marked as unsent again
     - Not sure how to implement this intelligently
+      - Add field to user with count of tweets sent about current book
+      - If the index is >= than their book.tweets.count, then the index is reset to 0
+      - Else, the tweet # index+1 is sent to the user.
+        ex: 
+          A user adds a book which has 10 tweets.
+          0 tweets have been sent
+          Index is 0
+          Tweet 0+1 gets sent
+          index is now 1
+          ... 24h passes...
+          1 tweet has been sent
+          index is 1
+          Tweet 1+1 gets sent
+          index is now 2 
+          .... days pass ....
+          index is now 10. 
+          book.tweets.count == 10
+          index gets reset to 0
+          Tweet 0+1 gets sent
+
+          ... Something like that.
