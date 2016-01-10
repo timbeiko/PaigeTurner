@@ -164,8 +164,11 @@ p {
   margin-top: 0; }
 
 #usrinfo {
-  width: 150%;
+  width: 100%;
   text-align: right;
+  float: right;
+  margin-right: -5%;
+  margin-top: -5%;
 }
 
 /* Timer */
@@ -177,11 +180,9 @@ p {
 }
 
 @media (max-width: 400px) {
-  #usrinfo { width: 100%; }
   #timer { font-size: 6rem; }
 }
 @media (max-width: 550px) {
-  #usrinfo {width: 115%; }
 }
 
 /* Links

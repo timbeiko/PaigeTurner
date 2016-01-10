@@ -1,16 +1,16 @@
-<div class="container"> 
+<div class="container">
     <div id="usrinfo">
       <img src="<%= asset_path @user.image %>" width=50 align="right" style="margin-left: 10px">
-      <p align="right">Hi <%= @user.handle %>!<br \>
+      <p>Hi <%= @user.handle %>!<br \>
         <%= link_to "Log out", signout_path %></p>
     </div>
     <div class="row" style="margin-top: 8%; margin-bottom: 3%">
       <center><img src="<%= asset_path 'paige_turner.png' %>" width=100></center>
     </div>
     <div class="row">
-      <center><p id="readMessage">All right, let's get reading. You're already on the clock.<br> 
+      <center><p id="readMessage">All right, let's get reading. You're already on the clock.<br>
       Enjoy <b><%= @user.books[0].title %></b>!</p></center>
-    </div>  
+    </div>
     <h1 id="congrats"></h1>
     <div>
       <div class="row" id="timer"><center>
@@ -32,7 +32,7 @@
             secondsLabel.innerHTML = pad(totalSeconds%60);
             minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
             hoursLabel.innerHTML = pad(parseInt(totalSeconds/3600));
-            
+
           }
 
           function finish()
@@ -60,7 +60,7 @@
               }
           }
       </script>
-    </div>  
+    </div>
     <br/>
     <br />
           <div class="row">
@@ -71,5 +71,3 @@
   <%= f.submit "submit" %></p>
 <% end %>
 </div>
- 
-
