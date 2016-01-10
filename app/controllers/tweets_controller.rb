@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  protect_from_forgery except: :tweetout
 
 	def new
 		@tweet = Tweet.new
@@ -27,12 +28,15 @@ class TweetsController < ApplicationController
       config.access_token_secret = 'gi8mWVzBJWCkElZm7vwR6423iXbwID2rLDmRklPQupgC0'
     end
 
-    @client.update("Hello again!") # This is just for testing
+    if current_user.has_reached_max_tweets?
+      current_user.reset_tweets_index
+    end
 
     handle = current_user.handle
-    # We'll need the actual logic to look somehting like this
-    tweet = current_user.books.first.tweets.find_by(1).body
-    # In order to select a tweet we'll need to -> See README.md
+    tweet = current_user.books.first.tweets.find_by(id: current_user.tweets_index + 1).body
+    increase_tweets_index(current_user)
+    current_user.save!
+    binding.pry
     @client.update(handle + " " + tweet)
     redirect_to bot_path
   end
@@ -41,4 +45,5 @@ class TweetsController < ApplicationController
 	def tweet_params
   	params.require(:tweet).permit(:body, :book_id)
 	end
+
 end

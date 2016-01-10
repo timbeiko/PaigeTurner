@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110011044) do
+ActiveRecord::Schema.define(version: 20160110143329) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160110011044) do
     t.integer  "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tweets_index"
   end
 
 end
