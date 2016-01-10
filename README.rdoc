@@ -16,3 +16,12 @@ Assumes you've installed redis, probably from homebrew.
 
 +heroku git:remote -a paige-turner+
 +git push heroku master+
+
+
+
+=== TODO
+  - Delete / Add book for a user
+  - Keep track of tweets for the user's current book (`current.user.books.find_by(1)` ?)
+    - When a tweet about X book has been sent, it is marked as so
+    - When all tweets about X book have been sent for `current_user`, they should all be marked as unsent again
+    - Not sure how to implement this intelligently
