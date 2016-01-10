@@ -22,10 +22,15 @@ module ScheduleTweet
           response = @client.update(handle + " " + tweet)  
           begin   
             resp = Twitter.update(params[:message])
+          response = @client.update(handle + " " + tweet + " http://paigeturner.co")
+          begin
+            puts response.inspect
           rescue Exception => e
             # e.message contains the twitter response      
           end
         end    
+          sleep(5)
+        end
       end
   end
 end
