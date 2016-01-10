@@ -1,4 +1,10 @@
+require "resque_web"
+
 Rails.application.routes.draw do
+
+  # Mounts the resque web console
+  mount ResqueWeb::Engine => "/resque"
+
   # Not sure all of these will be necessary.
   root 'static_pages#index'
 
@@ -12,9 +18,9 @@ Rails.application.routes.draw do
   get 'auth/identity/', to: redirect('/login')
   resources :identities, only: [:new, :create]
 
-  resources :tweets do  
+  resources :tweets do
   	get :autocomplete_book_title, on: :collection
-  end 
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -31,8 +37,5 @@ Rails.application.routes.draw do
   # Tweetbot
   get 'bot', to: 'tweets#bot'
   post 'tweetout', to: 'tweets#tweetout'
-
-  # Mounts the resque web console
-  mount ResqueWeb::Engine => "/resque_web"
 
 end

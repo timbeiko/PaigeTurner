@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-	autocomplete :book, :title
 
 	def new
 		@tweet = Tweet.new
@@ -29,10 +28,12 @@ class TweetsController < ApplicationController
     end
 
     @client.update("Hello again!") # This is just for testing
+
+    handle = current_user.handle
     # We'll need the actual logic to look somehting like this
-    # body = TheTweetThatWeWant.body
-    # handle = current_user.handle
-    # @client.update(handle + " " + body)
+    tweet = current_user.books.first.tweets.find_by(1).body
+    # In order to select a tweet we'll need to -> See README.md
+    @client.update(handle + " " + tweet)
     redirect_to bot_path
   end
 

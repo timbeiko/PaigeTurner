@@ -1,1 +1,59 @@
-<h1>Hi this is your profile</h1>
+ <div class="container">
+    <div id="usrinfo">
+      <img src="<%= asset_path 'egg.png' %>" width=50 align="right" style="margin-left: 10px">
+      <p align="right">Hi YOURNAME<br>Log out</p>
+    </div>
+    <div class="row" style="margin-top: 10%">
+      <center><img src="<%= asset_path 'paige_turner.png' %>" width=100></center>
+    </div>
+    <div class="row">
+      <center><p>Welcome back, YOURNAME! Time to get reading. <br>Enjoy FRANKENSTEIN!</p></center>
+    </div>
+    <div>
+    <center><label id="minutes">00</label><label>:</label><label id="seconds">00</label></center>
+    <a class="button" href="#" id="startstop" onclick="pause()">Start/stop timer</a>
+    <script type="text/javascript">
+          var minutesLabel = document.getElementById("minutes");
+          var secondsLabel = document.getElementById("seconds");
+          var totalSeconds = 0;
+          var active = true;
+          setInterval(setTime, 1000);
+
+          function setTime()
+          {
+           if (active){
+              ++totalSeconds;
+              secondsLabel.innerHTML = pad(totalSeconds%60);
+              minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+            }
+          }
+
+          function pause()
+          {
+            if(active) {
+              active=false;
+            } else active=true;
+          }
+
+          function pad(val)
+          {
+              var valString = val + "";
+              if(valString.length < 2)
+              {
+                  return "0" + valString;
+              }
+              else
+              {
+                  return valString;
+              }
+          }
+      </script>
+    </div>
+    <form>
+      <div class="row">
+        <input style="width: 60%" placeholder="What are you reading now?" font-family="Century Gothic" id="activeBook">
+        <input class="button-primary" type="submit" value="submit" id="submitBook">
+  </div>
+
+</form>
+</div>

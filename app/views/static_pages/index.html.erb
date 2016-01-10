@@ -1,9 +1,21 @@
-<h1>Hi, I'm Paige</h1>
-<h3> If you want to use me, you should log in with twitter</h3>
+<div class="container">
+<div class="row" style="margin-top: 5%">
+      <center><img src="<%= asset_path 'paige_turner.png' %>" width=200></center>
+    </div>
+    <div class="row" style="margin-top: 2%">
+      <center><h4>Hi, I'm Paige Turner!</h4></center>
+      <center><p style="text-align: justify">And I'm your personal book manager! Remember that hardcopy that's been idling on your night stand for the past year (you know the one), you’ve opened the cover, read a few sentences, and then that device in your pocket dings telling you why squirrels are especially fat this year or who just saw Drake’s doppelgänger, and there goes that previous reading time, lost to the abyss of the interwebs. Paigeturner.co clocks the amount of time you have spend reading your book and incorporates our twitter feed (@onthepaige) to encourage you to continue reading by posting tantalizing tweets from the characters in your book. So sign up and get On The Paige. </p></center>
+    </div>
+
+
 <% if current_user %>
   Welcome <%= current_user.handle %>!
   <img src="<%= current_user.image %>">
   <%= link_to "Sign Out", signout_path %>
 <% else %>
-  <%= link_to image_tag("sign-in-with-twitter-gray.png", :alt => "log in"), "/auth/twitter" %>
+  <div class="row" style="margin-top: 4%">
+      <center><a class="button button-primary" href="/auth/twitter">Log In with Twitter</a></center>
+  </div>
 <% end %>
+
+</div>
