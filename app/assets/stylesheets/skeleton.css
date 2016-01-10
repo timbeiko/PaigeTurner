@@ -25,6 +25,10 @@
 - Media Queries
 */
 
+/* Quick hack to make the picture round, not sure how to incorporate in screen sizes */
+.profilepicture {
+  border-radius: 25px;
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -179,8 +183,10 @@ p {
 
 @media (max-width: 400px) {
   #timer { font-size: 6rem; }
+  #usrinfo { width: 150%; }
 }
 @media (max-width: 550px) {
+  #usrinfo { width: 115%; }
 }
 
 /* Links
