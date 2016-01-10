@@ -19,15 +19,14 @@ class UsersController < ApplicationController
       config.access_token_secret = 'gi8mWVzBJWCkElZm7vwR6423iXbwID2rLDmRklPQupgC0'
     end
 
-    # if current_user.has_reached_max_tweets?
-    #   current_user.reset_tweets_index
-    # end
+    if current_user.has_reached_max_tweets?
+      current_user.reset_tweets_index
+    end
 
     handle = current_user.handle
-    tweet = current_user.books.first.tweets.find_by(id: current_user.tweets_index + 1).body
-    binding.pry
+    tweet = current_user.books.first.tweets[current_user.tweets_index].body
     current_user.increase_tweets_index
-    # @client.update(handle + " " + tweet)
+    @client.update(handle + " " + tweet)
     redirect_to bot_path
   end
 

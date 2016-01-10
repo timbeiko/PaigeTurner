@@ -16,7 +16,7 @@ class User <ActiveRecord::Base
   end
 
   def has_reached_max_tweets?
-    self.books.first.tweets.count >= self.tweets_index
+    self.tweets_index >= self.books.first.tweets.count
   end
 
   def reset_tweets_index
