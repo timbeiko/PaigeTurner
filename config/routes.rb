@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   resources :tweets
-  get '/login', to: 'sessions#new'
-  get 'auth/identity/', to: redirect('/login')
-  resources :identities, only: [:new, :create]
+
+  # Users
+  resources :users, only: :show
 
   # Tweetbot
   get 'bot', to: 'tweets#bot'
