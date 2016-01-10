@@ -6,17 +6,10 @@ Rails.application.routes.draw do
   post 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
-<<<<<<< HEAD
   resources :tweets
-=======
->>>>>>> 0a8eb750c9b002a57c60b54d42b698769e9b2c1d
-  get '/login', to: 'sessions#new'
-  get 'auth/identity/', to: redirect('/login')
-  resources :identities, only: [:new, :create]
 
-<<<<<<< HEAD
+
 end
-=======
   mount ResqueWeb::Engine => "/resque_web"
 
   # Example of regular route:
@@ -69,4 +62,3 @@ end
   #   end
 
 end
->>>>>>> 0a8eb750c9b002a57c60b54d42b698769e9b2c1d
