@@ -25,9 +25,24 @@ Assumes you've installed redis, probably from homebrew.
     - When a tweet about X book has been sent, it is marked as so
     - When all tweets about X book have been sent for `current_user`, they should all be marked as unsent again
     - Not sure how to implement this intelligently
-      - Create a new table that links user and tweets from the book
-        - This table needs a "sent" boolean attribute
-      - When the user adds a book, the book's tweets are sent to the user, all marked as sent = false
-      - When a tweet is sent out, that tweet in the user's tweet array gets marked as sent = true
-      - Keep sending random tweets from the user's tweets until for each tweet, sent == true
-        - Then reset all tweents to sent = false
+      - Add field to user with count of tweets sent about current book
+      - If the index is >= than their book.tweets.count, then the index is reset to 0
+      - Else, the tweet # index+1 is sent to the user.
+        ex: 
+          A user adds a book which has 10 tweets.
+          0 tweets have been sent
+          Index is 0
+          Tweet 0+1 gets sent
+          index is now 1
+          ... 24h passes...
+          1 tweet has been sent
+          index is 1
+          Tweet 1+1 gets sent
+          index is now 2 
+          .... days pass ....
+          index is now 10. 
+          book.tweets.count == 10
+          index gets reset to 0
+          Tweet 0+1 gets sent
+
+          ... Something like that.
