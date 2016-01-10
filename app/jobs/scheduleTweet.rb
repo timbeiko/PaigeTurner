@@ -26,9 +26,8 @@ module ScheduleTweet
             # e.message contains the twitter response
             puts e.message
           end
-        end
           sleep(5)
         end
       end
-  end
+    end
 end
