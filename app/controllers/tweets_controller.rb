@@ -20,7 +20,19 @@ class TweetsController < ApplicationController
   def bot
   end
 
-  def tweet
+  def tweetout
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["TWITTER_API_KEY"] 
+      config.consumer_secret     = ENV["TWITTER_API_SECRET"] 
+      config.access_token        = '4757590114-Kok6YXQBEENVeCKJv3WScIaOjNgS599fHPDoCoS'
+      config.access_token_secret = 'gi8mWVzBJWCkElZm7vwR6423iXbwID2rLDmRklPQupgC0'
+    end
+
+    @client.update("Hello again!") # This is just for testing
+    # We'll need the actual logic to look somehting like this
+    # body = TheTweetThatWeWant.body
+    # handle = current_user.handle
+    # @client.update(handle + " " + body)
     redirect_to bot_path
   end
 

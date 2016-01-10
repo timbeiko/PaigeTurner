@@ -1,5 +1,7 @@
 class User <ActiveRecord::Base
   validates_presence_of :uid, :provider, :handle
+  has_many :user_books
+  has_many :books, through: :user_books # Would need to change this to only allow 1 book
 
   def self.create_with_omniauth(auth)
     create! do |user|
