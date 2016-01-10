@@ -69,5 +69,7 @@ group :development do
   gem 'spring'
 
   gem 'foreman'
-  
+
 end
+
+ruby '2.1.5'
