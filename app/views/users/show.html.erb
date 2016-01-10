@@ -1,10 +1,10 @@
  <div class="container">
     <div id="usrinfo">
-      <img src="assets/egg.png" width=50 align="right" style="margin-left: 10px">
+      <img src="<%= asset_path 'egg.png' %>" width=50 align="right" style="margin-left: 10px">
       <p align="right">Hi YOURNAME<br>Log out</p>
     </div>
     <div class="row" style="margin-top: 10%">
-      <center><img src="assets/paige_turner.png" width=100></center>
+      <center><img src="<%= asset_path 'paige_turner.png' %>" width=100></center>
     </div>
     <div class="row">
       <center><p>Welcome back, YOURNAME! Time to get reading. <br>Enjoy FRANKENSTEIN!</p></center>
@@ -26,7 +26,6 @@
               secondsLabel.innerHTML = pad(totalSeconds%60);
               minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
             }
-<<<<<<< HEAD
           }
 
           function pause()
