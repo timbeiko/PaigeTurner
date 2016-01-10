@@ -69,7 +69,5 @@ group :development do
   gem 'spring'
 
   gem 'foreman'
-
-  gem 'rails4-autocomplete'
   
 end
