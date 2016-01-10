@@ -4,8 +4,8 @@ module ScheduleTweet
       User.all.each do |user|
         if ((user.books.count != 0) && (user.books.first.tweets.count != 0))
           @client = Twitter::REST::Client.new do |config|
-            config.consumer_key        = ENV["TWITTER_API_KEY"] 
-            config.consumer_secret     = ENV["TWITTER_API_SECRET"] 
+            config.consumer_key        = ENV["TWITTER_API_KEY"]
+            config.consumer_secret     = ENV["TWITTER_API_SECRET"]
             # Change this in prod
             config.access_token        = '4757590114-Kok6YXQBEENVeCKJv3WScIaOjNgS599fHPDoCoS'
             config.access_token_secret = 'gi8mWVzBJWCkElZm7vwR6423iXbwID2rLDmRklPQupgC0'
@@ -19,13 +19,14 @@ module ScheduleTweet
           handle = user.handle
           tweet = user.books.first.tweets[user.tweets_index].body
           user.increase_tweets_index
-          response = @client.update(handle + " " + tweet)  
-          begin   
-            resp = Twitter.update(params[:message])
+          response = @client.update(handle + " " + tweet)
+          begin
+            puts response.inspect
           rescue Exception => e
-            # e.message contains the twitter response      
+            # e.message contains the twitter response
+            puts e.message
           end
-        end    
+        end
       end
   end
 end
