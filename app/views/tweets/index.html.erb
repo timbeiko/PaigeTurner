@@ -1,0 +1,8 @@
+<h1>All queued tweets</h1>
+<br />
+<% for book in @all_books %>
+	<h4><%= book.title %></h4>
+	<% for tweet in book.tweets %>
+		<p><%= tweet.body %></p>
+	<% end %>
+<% end %> 

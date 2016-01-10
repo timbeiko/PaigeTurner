@@ -1,5 +1,9 @@
 class TweetsController < ApplicationController
 
+	def index
+		@all_books = Book.all 
+	end
+
 	def new
 		@tweet = Tweet.new
 	end

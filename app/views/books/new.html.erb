@@ -1,11 +1,11 @@
 <h1>Add a book!</h1>
+<br />
 <%= form_for @book, url: {action: "create"}, html: {class: "book_creation_form"} do |f| %>
-<p>
-  <%= f.label :title %>
+<p>Title:
   <%= f.text_field :title %>
 </p>
 <p>
-  <%= f.label :author %>
+  Author:
   <%= f.text_field :author %>
 </p>
   <%= f.submit "Add Book" %>
