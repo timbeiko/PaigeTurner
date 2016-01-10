@@ -1,3 +1,5 @@
+require "resque_web"
+
 Rails.application.routes.draw do
   # Not sure all of these will be necessary.
   root 'static_pages#index'
