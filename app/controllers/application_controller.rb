@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery except: :increase_tweets_index
   helper_method :current_user, :logged_in?
 
   private
@@ -10,5 +10,10 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !current_user.nil?
+  end
+
+  def increase_tweets_index(current_user)
+    current_user.tweets_index += 1
+    current_user.save!
   end
 end

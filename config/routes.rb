@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
 
   # Tweetbot
-  get 'bot', to: 'tweets#bot'
-  post 'tweetout', to: 'tweets#tweetout'
+  get 'bot', to: 'users#bot'
+  post 'tweetout', to: 'users#tweetout'
 
 end

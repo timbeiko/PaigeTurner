@@ -11,6 +11,20 @@ class User <ActiveRecord::Base
       user.token = auth["credentials"]["token"] # We might not even need this
       user.provider = auth["provider"]
       user.uid = auth["uid"]
+      user.tweets_index = 0
     end
+  end
+
+  def has_reached_max_tweets?
+    self.tweets_index >= self.books.first.tweets.count
+  end
+
+  def reset_tweets_index
+    self.tweets_index = 0
+  end
+
+  def increase_tweets_index
+    self.tweets_index += 1
+    self.save!
   end
 end
